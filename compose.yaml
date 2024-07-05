@@ -13,6 +13,8 @@ services:
       - ./frontend:/home/node/app
     networks:
       - socialfood-network
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     command: npm run dev
 
   backend:
