@@ -1,0 +1,26 @@
+networks:
+  socialfood-network:
+    driver: bridge
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    container_name: frontend
+    volumes:
+      - ./frontend:/home/node/app
+    networks:
+      - socialfood-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    container_name: backend
+    volumes:
+      - ./backend:/var/www
+    networks:
+      - socialfood-network
