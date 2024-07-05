@@ -37,4 +37,4 @@ RUN chown -R www-data:www-data /var/www
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 # Start PHP-FPM and Nginx
-CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
